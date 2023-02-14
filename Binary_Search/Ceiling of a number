@@ -1,1 +1,17 @@
-
+ public int ceil(int target) {
+        long start=0;
+        long end=x;  
+        long mid=-1; 
+        while(start<=end){ 
+            mid=(start)+(end-start)/2; 
+            if(a[mid]==target){ 
+               return mid;
+            }
+            else if(a[mid]>target){
+                 end=mid-1;
+            } 
+            else 
+                  start=mid+1;   
+        } 
+        return start;
+    }
