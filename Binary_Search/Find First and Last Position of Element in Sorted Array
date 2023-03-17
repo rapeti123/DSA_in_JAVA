@@ -1,0 +1,31 @@
+class Solution { 
+    public int[] searchRange(int[] nums, int target) {
+        int [] ans={-1,-1};  
+        int firstOccurence=search(nums,target,true) ;
+        int lastOccurence=search(nums,target,false); 
+        ans[0]=firstOccurence;
+        ans[1]=lastOccurence;
+        return ans;
+    } 
+    int search(int nums[],int target,boolean firstOcuurence){
+        int ans=-1; 
+       int start=0;
+       int end=nums.length-1; 
+       int mid=-1;
+       while(start<=end){
+           mid=start+(end-start)/2; 
+            if(nums[mid]<target) 
+              start=mid+1; 
+            else if(nums[mid]>target) 
+               end=mid-1; 
+            else{ 
+                ans=mid;
+                if(firstOcuurence) 
+                  end=mid-1; 
+                else 
+                  start=mid+1;
+            }
+       }
+        return ans;
+    }
+}
